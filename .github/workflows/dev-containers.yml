@@ -1,10 +1,11 @@
 name: 'Dev Container Build' 
-on: # rebuild any PRs and main branch changes
-  pull_request:
-    branches: [ "main" ]
-  push:
-    branches:
-      - main
+on:
+  workflow_dispatch: # Set up build manually 
+  # pull_request:
+  #   branches: [ "main" ]
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   build:
@@ -21,3 +22,5 @@ jobs:
           runCmd: |
             dotnet build
             dotnet run
+
+          
