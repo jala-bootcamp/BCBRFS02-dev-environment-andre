@@ -2,11 +2,11 @@ name: Publish Docker image
 
 on:
   workflow_dispatch: # Set up build manually
-  push:
-    branches:
-      - main
-  pull_request:
-      types: [opened, synchronize, reopened]
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #     types: [opened, synchronize, reopened]
 
 jobs:
   build-and-push-docker-image:
