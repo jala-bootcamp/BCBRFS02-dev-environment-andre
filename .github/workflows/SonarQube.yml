@@ -13,8 +13,9 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+        cache-dependency-path: 'sub-project/pom.xml
     - name: Build with Maven cloud
-      run:  mvn -B verify sonar:sonar -Dsonar.projectKey=${{secrets.PROJECT_KEY}} -Dsonar.organization=${{secrets.ORGANIZATION_KEY}} -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN}}
+      run:  mvn -B verify sonar:sonar -Dsonar.projectKey=${{secrets.PROJECT_KEY}} -Dsonar.organization=${{secrets.ORGANIZATION_KEY}} -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN}} --file pom.xml
       env:
         GIT_HUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
         SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
