@@ -42,6 +42,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet-sonarscanner begin /k:"${{secrets.PROJECT_KEY}}" /o:"${{secrets.ORG_KEY}}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{secrets.SONAR_HOST_URL}}"
+          dotnet-sonarscanner begin /k:"${{secrets.PROJECT_KEY}}" /o:"${{secrets.ORGANIZATION_KEY}}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{secrets.SONAR_HOST_URL}}"
           dotnet build
           dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
